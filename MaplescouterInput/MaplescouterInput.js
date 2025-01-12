@@ -35,7 +35,7 @@ function saveFormData_Button() {
     var button = document.createElement('button');
     button.textContent = '儲存表單資料';
     button.style.position = 'fixed';
-    button.style.top = '50px';
+    button.style.top = '80px';
     button.style.right = '50px';
     button.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'; // 黑色半透明背景
     button.style.color = '#fff'; // 文字白色
@@ -52,7 +52,7 @@ function loadingFormData_Button() {
     var button = document.createElement('button');
     button.textContent = '載入表單資料';
     button.style.position = 'fixed';
-    button.style.top = '100px';
+    button.style.top = '130px';
     button.style.right = '50px';
     button.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'; // 黑色半透明背景
     button.style.color = '#fff'; // 文字白色
