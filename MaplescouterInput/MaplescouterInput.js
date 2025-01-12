@@ -120,27 +120,25 @@ function simulateTextInput(targetInput, text) {
     targetInput.dispatchEvent(changeEvent);  // 派發 change 事件，確保變更會被提交
 }
 
-//Get Data (cookie)
+//Get Data (localStorage)
 function getData() {
-    const cookieName = 'mapleStoryInputList';
-    const cookieMatch = document.cookie.match('(^| )' + cookieName + '=([^;]+)'); // 查找cookie是否存在
-    
-    if (cookieMatch) {
-        const cookieValue = decodeURIComponent(cookieMatch[2]); // 解碼cookie值
+    const storedData = localStorage.getItem('mapleStoryInputList'); // 從 localStorage 取得資料
+    if (storedData) {
         try {
-            const values = JSON.parse(cookieValue); // 解析JSON字串
+            const values = JSON.parse(storedData); // 解析JSON字串
             return values; // 返回解析後的陣列
         } catch (e) {
-            console.error('解析 cookie 時出錯:', e);
+            console.error('解析 localStorage 時出錯:', e);
             return null;
         }
     } else {
-        console.log('找不到指定的 cookie!');
+        console.log('找不到指定的 localStorage 資料!');
         return null;
     }
 }
 
-//Set Data (cookie)
+
+//Set Data (localStorage)
 function saveData() {
     const inputValuesList = getInputValues(); //取得表單內容
     setValuesToCookie(inputValuesList); // 把結果存入 cookie
@@ -149,14 +147,8 @@ function saveData() {
 function getInputValues() {
     const focusableElements = Array.from(document.querySelectorAll('input[type="string"], input[type="number"]'));
     const inputValues = focusableElements.map(input => input.value);
-    return inputValues;
+    const valueJson = JSON.stringify(inputValues); // 把陣列轉換為Json字串
+    localStorage.setItem('mapleStoryInputList', valueJson); // 儲存到 localStorage
 }
-function setValuesToCookie(values) {
-    const cookieName = 'mapleStoryInputList';
-    const cookieValue = encodeURIComponent(JSON.stringify(values)); // 把陣列轉換為字串並編碼
-    const expires = new Date();
-    expires.setTime(expires.getTime() + (30 * 60 * 1000)); // 設置過期時間為30分鐘
-    
-    document.cookie = `${cookieName}=${cookieValue}; expires=${expires.toUTCString()}; path=/`; // 存儲到cookie
-}
+
 
