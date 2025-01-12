@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         MaplescouterInput 工具
-// @namespace    MaplescouterInput
+// @namespace    MaplescouterInput Tools
 // @version      V1.0.0
 // @description  
 // @author       TheHon
