@@ -1,4 +1,3 @@
-
 // ==UserScript==
 // @name         MaplescouterInput 工具
 // @namespace    MaplescouterInput
