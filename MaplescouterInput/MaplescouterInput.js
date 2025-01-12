@@ -4,7 +4,7 @@
 // @version      V1.0.0
 // @description  
 // @author       TheHon
-// @match        https://maplescouter.com*
+// @match        https://maplescouter.com/input
 // @icon         https://www.google.com/s2/favicons?sz=64&maplescouter.com
 // @grant        none
 // ==/UserScript==
@@ -68,7 +68,7 @@ function showDialogAndExecute() {
         return;
     }
 
-    const userConfirmed = window.confirm('確認要執行表單操作嗎？');
+    const userConfirmed = window.confirm('確定要載入表單資料嗎？');
     if (!userConfirmed) {
         return;
     }
