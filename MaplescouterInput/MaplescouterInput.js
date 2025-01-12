@@ -149,7 +149,7 @@ function saveData() {
     const inputValues = focusableElements.map(input => input.value); //取得所有Input資料
     const valueJson = JSON.stringify(inputValues); // 把陣列轉換為Json字串
     localStorage.setItem('mapleStoryInputList', valueJson); // 儲存到 localStorage
-    alert("表單資料已儲存! (僅儲存30分鐘)");
+    alert("表單資料已儲存!");
 }
 
 
