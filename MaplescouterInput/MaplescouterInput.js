@@ -4,7 +4,7 @@
 // @version      V1.0.0
 // @description  
 // @author       TheHon
-// @match        https://maplescouter.com/input
+// @match        https://maplescouter.com*
 // @icon         https://www.google.com/s2/favicons?sz=64&maplescouter.com
 // @grant        none
 // ==/UserScript==
