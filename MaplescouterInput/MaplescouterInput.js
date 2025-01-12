@@ -18,10 +18,15 @@
 
 function main() {
     const saveBtn = saveFormData_Button();
-    saveBtn.addEventListener('click', () => saveData());
+    saveBtn.addEventListener('click', () => {
+        const userConfirmed = window.confirm('確定要儲存表單資料嗎？');
+        if (userConfirmed) {
+            saveData();
+        }
+    });
     
     const loadBtn = loadingFormData_Button();
-    loadBtn.addEventListener('click', () => showDialogAndExecute());
+    loadBtn.addEventListener('click', () => showLoadingFormDialog());
 }
 
 //Create Button
@@ -61,7 +66,7 @@ function loadingFormData_Button() {
 };
 
 //Form function
-function showDialogAndExecute() {
+function showLoadingFormDialog() {
     let datas = getData();
     if (datas == null) {
         alert('請先儲存表單資料!');
