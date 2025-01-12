@@ -145,15 +145,11 @@ function getData() {
 
 //Set Data (localStorage)
 function saveData() {
-    const inputValuesList = getInputValues(); //取得表單內容
-    setValuesToCookie(inputValuesList); // 把結果存入 cookie
-    alert("表單資料已儲存! (僅儲存30分鐘)");
-}
-function getInputValues() {
-    const focusableElements = Array.from(document.querySelectorAll('input[type="string"], input[type="number"]'));
-    const inputValues = focusableElements.map(input => input.value);
+    const focusableElements = Array.from(document.querySelectorAll('input[type="string"], input[type="number"]')); //抓取Input元素
+    const inputValues = focusableElements.map(input => input.value); //取得所有Input資料
     const valueJson = JSON.stringify(inputValues); // 把陣列轉換為Json字串
     localStorage.setItem('mapleStoryInputList', valueJson); // 儲存到 localStorage
+    alert("表單資料已儲存! (僅儲存30分鐘)");
 }
 
 
